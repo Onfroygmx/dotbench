@@ -1,0 +1,36 @@
+# System
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+Public
+Torrents
+VirtualBox\ VMs
+
+# Files
+*.zwc
+.DS_Store
+.CFUserTextEncoding
+.gitconfig
+.git-credentials
+.gitignore_global
+.gitmessage
+.nanorc
+.viminfo
+.zshenv
+
+# Folders
+.atom
+.cache
+.dot/.dotgit
+.dot/data
+.dot/plugins
+.npm
+.ssh
+.vscode
+
+# Files
+.dot/zsh/.passwd
