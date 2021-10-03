@@ -1,0 +1,134 @@
+#### Base
+
+Startup Time:  35.0668 ms
+Startup Time:  40.128 ms
+Startup Time:  34.6542 ms
+
+repeat 10 { time zsh -i -c exit; }
+
+zsh -i -c exit  0,06s user 0,00s system 98% cpu 0,059 total
+zsh -i -c exit  0,05s user 0,01s system 97% cpu 0,058 total
+zsh -i -c exit  0,05s user 0,01s system 99% cpu 0,058 total
+zsh -i -c exit  0,05s user 0,01s system 99% cpu 0,060 total
+zsh -i -c exit  0,04s user 0,01s system 97% cpu 0,059 total
+zsh -i -c exit  0,04s user 0,02s system 98% cpu 0,057 total
+zsh -i -c exit  0,05s user 0,01s system 96% cpu 0,061 total
+zsh -i -c exit  0,05s user 0,01s system 98% cpu 0,059 total
+zsh -i -c exit  0,03s user 0,02s system 97% cpu 0,059 total
+zsh -i -c exit  0,05s user 0,01s system 98% cpu 0,061 total
+
+
+onf ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,04s user 0,02s system 97% cpu 0,061 total
+zsh -ic exit  0,05s user 0,01s system 98% cpu 0,062 total
+zsh -ic exit  0,04s user 0,02s system 97% cpu 0,059 total
+zsh -ic exit  0,04s user 0,01s system 97% cpu 0,056 total
+zsh -ic exit  0,05s user 0,01s system 96% cpu 0,060 total
+zsh -ic exit  0,05s user 0,01s system 97% cpu 0,059 total
+zsh -ic exit  0,04s user 0,02s system 97% cpu 0,059 total
+zsh -ic exit  0,05s user 0,01s system 97% cpu 0,058 total
+zsh -ic exit  0,05s user 0,02s system 97% cpu 0,068 total
+zsh -ic exit  0,04s user 0,02s system 98% cpu 0,059 total
+
+
+### Compile plugins
+for f in .dot/plugins/**/*.zsh; do zcompile $f 2>/dev/null; done
+
+Startup Time:  23.5429 ms
+Startup Time:  24.5839 ms
+Startup Time:  22.3624 ms
+
+onf ~ > repeat 10 { time zsh -i -c exit; } >> times.txt
+
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,037 total
+zsh -i -c exit  0,03s user 0,01s system 97% cpu 0,035 total
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,039 total
+zsh -i -c exit  0,03s user 0,01s system 96% cpu 0,037 total
+zsh -i -c exit  0,03s user 0,01s system 96% cpu 0,036 total
+zsh -i -c exit  0,03s user 0,01s system 97% cpu 0,037 total
+zsh -i -c exit  0,03s user 0,01s system 97% cpu 0,036 total
+zsh -i -c exit  0,03s user 0,01s system 96% cpu 0,036 total
+zsh -i -c exit  0,02s user 0,01s system 98% cpu 0,037 total
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,037 total
+
+
+onf ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,03s user 0,00s system 99% cpu 0,035 total
+zsh -ic exit  0,02s user 0,01s system 97% cpu 0,035 total
+zsh -ic exit  0,02s user 0,02s system 97% cpu 0,036 total
+zsh -ic exit  0,03s user 0,01s system 98% cpu 0,036 total
+zsh -ic exit  0,03s user 0,01s system 94% cpu 0,037 total
+zsh -ic exit  0,03s user 0,00s system 98% cpu 0,037 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,036 total
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,035 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,039 total
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,040 total
+
+### Compile modules
+# for f in .dot/zsh/modules/**/*.zsh; do zcompile $f 2>/dev/null; done
+
+Startup Time:  24.0707 ms
+Startup Time:  21.0783 ms
+Startup Time:  22.7819 ms
+
+onf ~ > repeat 10 { time zsh -i -c exit; }
+
+zsh -i -c exit  0,03s user 0,01s system 98% cpu 0,034 total
+zsh -i -c exit  0,03s user 0,01s system 98% cpu 0,034 total
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,037 total
+zsh -i -c exit  0,03s user 0,00s system 96% cpu 0,036 total
+zsh -i -c exit  0,03s user 0,00s system 97% cpu 0,033 total
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,034 total
+zsh -i -c exit  0,03s user 0,00s system 97% cpu 0,035 total
+zsh -i -c exit  0,03s user 0,01s system 97% cpu 0,034 total
+zsh -i -c exit  0,03s user 0,00s system 97% cpu 0,037 total
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,036 total
+
+
+onf ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,02s user 0,01s system 98% cpu 0,035 total
+zsh -ic exit  0,02s user 0,01s system 97% cpu 0,034 total
+zsh -ic exit  0,02s user 0,01s system 97% cpu 0,034 total
+zsh -ic exit  0,03s user 0,00s system 97% cpu 0,034 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,040 total
+zsh -ic exit  0,03s user 0,01s system 95% cpu 0,036 total
+zsh -ic exit  0,02s user 0,01s system 97% cpu 0,033 total
+zsh -ic exit  0,03s user 0,00s system 96% cpu 0,035 total
+zsh -ic exit  0,02s user 0,01s system 98% cpu 0,034 total
+zsh -ic exit  0,02s user 0,01s system 98% cpu 0,035 total
+
+
+### Compliz z(shrc,env,profile)
+#for f in .dot/zsh/.z*; do zcompile $f 2>/dev/null; done
+
+Startup Time:  22.1994 ms
+Startup Time:  23.2987 ms
+Startup Time:  20.7744 ms
+
+onf ~ > repeat 10 { time zsh -i -c exit; }
+zsh -i -c exit  0,03s user 0,00s system 98% cpu 0,034 total
+zsh -i -c exit  0,03s user 0,00s system 99% cpu 0,034 total
+zsh -i -c exit  0,03s user 0,00s system 96% cpu 0,033 total
+zsh -i -c exit  0,03s user 0,00s system 96% cpu 0,033 total
+zsh -i -c exit  0,03s user 0,00s system 98% cpu 0,033 total
+zsh -i -c exit  0,04s user 0,00s system 97% cpu 0,040 total
+zsh -i -c exit  0,02s user 0,01s system 95% cpu 0,033 total
+zsh -i -c exit  0,03s user 0,01s system 98% cpu 0,034 total
+zsh -i -c exit  0,02s user 0,01s system 98% cpu 0,034 total
+zsh -i -c exit  0,03s user 0,00s system 96% cpu 0,033 total
+
+onf ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,03s user 0,00s system 99% cpu 0,034 total
+zsh -ic exit  0,02s user 0,01s system 98% cpu 0,034 total
+zsh -ic exit  0,03s user 0,01s system 93% cpu 0,035 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,035 total
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,034 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,034 total
+zsh -ic exit  0,02s user 0,01s system 97% cpu 0,034 total
+zsh -ic exit  0,03s user 0,00s system 97% cpu 0,033 total
+zsh -ic exit  0,04s user 0,00s system 97% cpu 0,037 total
+zsh -ic exit  0,01s user 0,02s system 97% cpu 0,033 total
