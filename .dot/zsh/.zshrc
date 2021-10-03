@@ -11,7 +11,7 @@
 #
 # Zprofile
 #
-ZSH_PROFILE=0
+ZSH_PROFILE=1
 if [ $ZSH_PROFILE -gt 0 ]; then
   zmodload zsh/zprof
 fi
@@ -28,28 +28,43 @@ setopt no_beep
 ## Set prompt
 # Verry simple prompt
 PROMPT='%F{green}%n%f %F{cyan}%(4~|%-1~/.../%2~|%~)%f %F{magenta}%B>%b%f '
-RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'#
+RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'
 
-builtin source $PLUGIN_DIR/zmod/zmod.zsh
+builtin source ~/.zinit/bin/zinit.zsh
 
-builtin source $MODULE_DIR/aliases/aliases.zsh
-builtin source $MODULE_DIR/history/history.zsh
-builtin source $MODULE_DIR/colored-man/colored-man.zsh
-builtin source $MODULE_DIR/dircolor/dircolor.zsh
-builtin source $MODULE_DIR/completion/completion.zsh
+module_path+=( "/home/zinit/.zinit/bin/zmodules/Src" )
+zmodload zdharma/zplugin
 
+## ZINIT
+## Load Local Modules
+zinit lucid light-mode for \
+        id-as"module/gnupath"       $MODULE_DIR/gnupath \
+        id-as"module/aliases"       $MODULE_DIR/aliases \
+        id-as"module/colored-man"   $MODULE_DIR/colored-man \
+        id-as"module/history"       $MODULE_DIR/history \
+        id-as"module/dircolor"      $MODULE_DIR/dircolor \
+        id-as"module/completion"    $MODULE_DIR/completion
 
-builtin source $PLUGIN_DIR/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+## Load external plugins
+zinit ice wait lucid blockf
+zinit light zsh-users/zsh-completions
+zinit ice wait lucid compile'{src/*.zsh,src/strategies/*}' atinit"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=69'" atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'!' lucid
+zinit light zsh-users/zsh-history-substring-search
+zinit ice wait lucid atinit"ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)"
+zinit light zsh-users/zsh-syntax-highlighting
+#zinit ice wait'!' lucid
+#zinit light zsh-users/zsh-history-substring-search
+
 # Set highlighters
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
-ZSH_HIGHLIGHT_PATTERNS+=('brew install *' 'fg=white,bold,bg=green')
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+#ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+#ZSH_HIGHLIGHT_PATTERNS+=('brew install *' 'fg=white,bold,bg=green')
 
-builtin source $PLUGIN_DIR/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Set color of autosuggestions and ignore leading spaces
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=69'
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=69'
 
-builtin source $PLUGIN_DIR/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Set history search options
 HISTORY_SUBSTRING_SEARCH_FUZZY=set
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=set

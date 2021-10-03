@@ -1,0 +1,57 @@
+# Using Zinit
+
+Startup Time:  138.279 ms
+Startup Time:  155.538 m
+Startup Time:  140 ms
+
+zinit ~ > zpmod source-study
+
+   0 ms    
+   0 ms    aliases.zsh
+   0 ms    colored-man.zsh
+   0 ms    history.zsh
+   0 ms    ls_colors.zsh
+   0 ms    dircolor.zsh
+   3 ms    completion.zsh
+   5 ms    zcompdump
+   0 ms    zsh-completions.plugin.zsh
+   3 ms    zsh-autosuggestions.zsh
+   3 ms    zsh-autosuggestions.plugin.zsh
+  32 ms    zsh-history-substring-search.zsh
+  32 ms    zsh-history-substring-search.plugin.zsh
+   0 ms    brackets-highlighter.zsh
+   0 ms    cursor-highlighter.zsh
+   0 ms    line-highlighter.zsh
+   2 ms    main-highlighter.zsh
+   0 ms    pattern-highlighter.zsh
+   0 ms    regexp-highlighter.zsh
+   0 ms    root-highlighter.zsh
+  42 ms    zsh-syntax-highlighting.zsh
+  42 ms    zsh-syntax-highlighting.plugin.zsh#
+
+
+zinit ~ > repeat 10 { time zsh -i -c exit; }
+
+zsh -i -c exit  0,05s user 0,03s system 99% cpu 0,082 total
+zsh -i -c exit  0,05s user 0,03s system 98% cpu 0,083 total
+zsh -i -c exit  0,07s user 0,01s system 98% cpu 0,080 total
+zsh -i -c exit  0,07s user 0,00s system 98% cpu 0,081 total
+zsh -i -c exit  0,06s user 0,02s system 98% cpu 0,080 total
+zsh -i -c exit  0,06s user 0,02s system 98% cpu 0,080 total
+zsh -i -c exit  0,06s user 0,01s system 98% cpu 0,081 total
+zsh -i -c exit  0,06s user 0,02s system 97% cpu 0,080 total
+zsh -i -c exit  0,05s user 0,02s system 99% cpu 0,078 total
+zsh -i -c exit  0,07s user 0,02s system 96% cpu 0,086 total
+
+zinit ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,06s user 0,02s system 98% cpu 0,081 total
+zsh -ic exit  0,07s user 0,01s system 98% cpu 0,079 total
+zsh -ic exit  0,07s user 0,02s system 98% cpu 0,086 total
+zsh -ic exit  0,06s user 0,02s system 99% cpu 0,080 total
+zsh -ic exit  0,06s user 0,02s system 98% cpu 0,081 total
+zsh -ic exit  0,05s user 0,03s system 99% cpu 0,080 total
+zsh -ic exit  0,05s user 0,03s system 99% cpu 0,078 total
+zsh -ic exit  0,06s user 0,02s system 98% cpu 0,081 total
+zsh -ic exit  0,07s user 0,01s system 98% cpu 0,080 total
+zsh -ic exit  0,07s user 0,01s system 99% cpu 0,078 total
