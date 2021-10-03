@@ -101,7 +101,7 @@ zsh -ic exit  0,02s user 0,01s system 98% cpu 0,034 total
 zsh -ic exit  0,02s user 0,01s system 98% cpu 0,035 total
 
 
-### Compliz z(shrc,env,profile)
+### Compile z(shrc,env,profile)
 #for f in .dot/zsh/.z*; do zcompile $f 2>/dev/null; done
 
 Startup Time:  22.1994 ms
