@@ -4,6 +4,19 @@ Startup Time:  31.844 ms
 Startup Time:  31.6064 ms
 Startup Time:  38.8311 ms
 
+onfzmod ~ > zmod list -d
+
+Modules:
+ 0.199 ms:    module/aliases
+ 0.185 ms:    module/history
+ 0.150 ms:    module/colored-man
+ 0.456 ms:    module/dircolor
+ 1.617 ms:    module/completion
+14.579 ms:    zsh-users/zsh-syntax-highlighting
+ 1.114 ms:    zsh-users/zsh-autosuggestions
+ 0.624 ms:    zsh-users/zsh-history-substring-search
+ 8.799 ms:    zcompdump
+ 
 onfzmod ~ > repeat 10 { time zsh -i -c exit; }
 
 zsh -i -c exit  0,04s user 0,00s system 96% cpu 0,040 total
@@ -29,3 +42,49 @@ zsh -ic exit  0,03s user 0,01s system 97% cpu 0,039 total
 zsh -ic exit  0,03s user 0,01s system 98% cpu 0,038 total
 zsh -ic exit  0,03s user 0,01s system 97% cpu 0,041 total
 zsh -ic exit  0,03s user 0,01s system 98% cpu 0,040 total
+
+
+## loop through modules and plugins
+
+Startup Time:  36.5484 m
+Startup Time:  30.9485 ms
+Startup Time:  31.2368 ms
+
+onfzmod ~ > zmod list -d
+
+Modules:
+ 0.194 ms:    module/aliases
+ 0.184 ms:    module/history
+ 0.150 ms:    module/colored-man
+ 0.212 ms:    module/dircolor
+ 1.866 ms:    module/completion
+14.299 ms:    zsh-users/zsh-syntax-highlighting
+ 1.426 ms:    zsh-users/zsh-autosuggestions
+ 0.480 ms:    zsh-users/zsh-history-substring-search
+ 8.408 ms:    zcompdump
+
+onfzmod ~ > repeat 10 { time zsh -i -c exit; }
+
+zsh -i -c exit  0,03s user 0,01s system 99% cpu 0,039 total
+zsh -i -c exit  0,02s user 0,02s system 99% cpu 0,037 total
+zsh -i -c exit  0,02s user 0,02s system 99% cpu 0,038 total
+zsh -i -c exit  0,02s user 0,02s system 99% cpu 0,041 total
+zsh -i -c exit  0,03s user 0,01s system 99% cpu 0,038 total
+zsh -i -c exit  0,02s user 0,01s system 99% cpu 0,039 total
+zsh -i -c exit  0,02s user 0,02s system 94% cpu 0,040 total
+zsh -i -c exit  0,02s user 0,01s system 97% cpu 0,038 total
+zsh -i -c exit  0,03s user 0,01s system 99% cpu 0,040 total
+zsh -i -c exit  0,03s user 0,01s system 98% cpu 0,039 total
+
+onfzmod ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,040 total
+zsh -ic exit  0,03s user 0,01s system 98% cpu 0,042 total
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,037 total
+zsh -ic exit  0,02s user 0,02s system 98% cpu 0,038 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,041 total
+zsh -ic exit  0,02s user 0,01s system 98% cpu 0,038 total
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,041 total
+zsh -ic exit  0,03s user 0,01s system 98% cpu 0,037 total
+zsh -ic exit  0,03s user 0,01s system 99% cpu 0,038 total
+zsh -ic exit  0,03s user 0,02s system 98% cpu 0,042 total

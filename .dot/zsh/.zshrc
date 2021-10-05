@@ -11,7 +11,7 @@
 #
 # Zprofile
 #
-ZSH_PROFILE=1
+ZSH_PROFILE=0
 if [ $ZSH_PROFILE -gt 0 ]; then
   zmodload zsh/zprof
 fi
@@ -32,24 +32,39 @@ RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'#
 
 builtin source $PLUGIN_DIR/zmod/zmod.zsh
 
-zmod load $MODULE_DIR/aliases/aliases.zsh "module/aliases"
-zmod load $MODULE_DIR/history/history.zsh "module/history"
-zmod load $MODULE_DIR/colored-man/colored-man.zsh "module/colored-man"
-zmod load $MODULE_DIR/dircolor/dircolor.zsh "module/dircolor"
-zmod load $MODULE_DIR/completion/completion.zsh "module/completion"
+MODULES=(
+    aliases
+    history
+    colored-man
+    dircolor
+    completion
+)
 
+#Source module files
+for module in $MODULES; do
+  zmod load "$MODULE_DIR/$module/$module.zsh" "module/$module"
+done
 
-zmod load $PLUGIN_DIR/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh "zsh-users/zsh-syntax-highlighting"
+#declare -A PLUGINS
+PLUGINS=(
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-history-substring-search
+)
+
+#Source plugin files
+for plug in $PLUGINS; do
+  zmod load "$PLUGIN_DIR/${plug}/${plug:t}.zsh" "$plug"
+done
+
 # Set highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 ZSH_HIGHLIGHT_PATTERNS+=('brew install *' 'fg=white,bold,bg=green')
 
-zmod load $PLUGIN_DIR/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh "zsh-users/zsh-autosuggestions"
 # Set color of autosuggestions and ignore leading spaces
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=69'
 
-zmod load $PLUGIN_DIR/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh "zsh-users/zsh-history-substring-search"
 # Set history search options
 HISTORY_SUBSTRING_SEARCH_FUZZY=set
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=set
