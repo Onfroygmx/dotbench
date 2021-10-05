@@ -4,6 +4,19 @@ Startup Time:  43.1929 ms
 Startup Time:  35.6023 ms
 Startup Time:  40.6235 ms
 
+zcomet ~ > zcomet list
+Plugins:
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-syntax-highlighting
+Snippets:
+  ~/.dot/zsh/modules/aliases/aliases.zsh
+  ~/.dot/zsh/modules/colored-man/colored-man.zsh
+  ~/.dot/zsh/modules/completion/completion.zsh
+  ~/.dot/zsh/modules/dircolor/dircolor.zsh
+  ~/.dot/zsh/modules/history/history.zsh
+
+
 zcomet ~ > repeat 10 { time zsh -i -c exit; }
 
 zsh -i -c exit  0,03s user 0,01s system 98% cpu 0,040 total
