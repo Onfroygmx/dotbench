@@ -1,8 +1,8 @@
 ## zcomet
 
-Startup Time:  43.1929 ms
-Startup Time:  35.6023 ms
-Startup Time:  40.6235 ms
+Startup Time:  34.3973 ms
+Startup Time:  32.6825 ms
+Startup Time:  36.7225 ms
 
 zcomet ~ > zcomet list
 Plugins:
