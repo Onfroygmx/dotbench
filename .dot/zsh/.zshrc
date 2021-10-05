@@ -30,8 +30,6 @@ setopt no_beep
 PROMPT='%F{green}%n%f %F{cyan}%(4~|%-1~/.../%2~|%~)%f %F{magenta}%B>%b%f '
 RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'#
 
-builtin source $PLUGIN_DIR/zmod/zmod.zsh
-
 builtin source $MODULE_DIR/aliases/aliases.zsh
 builtin source $MODULE_DIR/history/history.zsh
 builtin source $MODULE_DIR/colored-man/colored-man.zsh
