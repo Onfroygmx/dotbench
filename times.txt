@@ -29,6 +29,33 @@ zinit ~ > zpmod source-study
   42 ms    zsh-syntax-highlighting.zsh
   42 ms    zsh-syntax-highlighting.plugin.zsh#
 
+zinit ~ > zinit times
+
+Plugin loading times:
+    2 ms - module/gnupath
+    2 ms - module/aliases
+    2 ms - module/colored-man
+    2 ms - module/history
+    3 ms - module/dircolor
+    3 ms - module/completion
+    3 ms - zsh-users/zsh-completions
+   52 ms - zsh-users/zsh-autosuggestions
+   36 ms - zsh-users/zsh-history-substring-search
+   43 ms - zsh-users/zsh-syntax-highlighting
+
+zinit ~ > zinit times -ms
+
+Plugin loading moments (relative to the first prompt):
+-0.037 sec - module/gnupath
+-0.034 sec - module/aliases
+-0.031 sec - module/colored-man
+-0.028 sec - module/history
+-0.024 sec - module/dircolor
+-0.020 sec - module/completion
+0.014 sec - zsh-users/zsh-completions
+0.071 sec - zsh-users/zsh-autosuggestions
+0.115 sec - zsh-users/zsh-history-substring-search
+0.164 sec - zsh-users/zsh-syntax-highlighting
 
 zinit ~ > repeat 10 { time zsh -i -c exit; }
 

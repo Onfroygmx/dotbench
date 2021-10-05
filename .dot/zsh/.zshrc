@@ -11,7 +11,7 @@
 #
 # Zprofile
 #
-ZSH_PROFILE=1
+ZSH_PROFILE=0
 if [ $ZSH_PROFILE -gt 0 ]; then
   zmodload zsh/zprof
 fi
