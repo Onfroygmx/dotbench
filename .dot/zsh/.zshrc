@@ -11,7 +11,7 @@
 #
 # Zprofile
 #
-ZSH_PROFILE=1
+ZSH_PROFILE=0
 if [ $ZSH_PROFILE -gt 0 ]; then
   zmodload zsh/zprof
 fi
@@ -32,24 +32,51 @@ RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'#
 
 builtin source ${HOME}/.zcomet/bin/zcomet.zsh
 
-zcomet snippet $MODULE_DIR/aliases/aliases.zsh
-zcomet snippet $MODULE_DIR/history/history.zsh
-zcomet snippet $MODULE_DIR/colored-man/colored-man.zsh
-zcomet snippet $MODULE_DIR/dircolor/dircolor.zsh
-zcomet snippet $MODULE_DIR/completion/completion.zsh
+#declare -A MODULES
+MODULES=(
+    aliases
+    history
+    colored-man
+    dircolor
+    completion
+)
 
+#Source module files
+for module in $MODULES; do
+  zcomet snippet "$MODULE_DIR/$module/$module.zsh"
+done
 
-zcomet load zsh-users/zsh-syntax-highlighting
+#zcomet snippet $MODULE_DIR/aliases/aliases.zsh
+#zcomet snippet $MODULE_DIR/history/history.zsh
+#zcomet snippet $MODULE_DIR/colored-man/colored-man.zsh
+#zcomet snippet $MODULE_DIR/dircolor/dircolor.zsh
+#zcomet snippet $MODULE_DIR/completion/completion.zsh
+
+#zcomet load marlonrichert/zsh-autocomplete
+
+#declare -A PLUGINS
+PLUGINS=(
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-history-substring-search
+)
+
+#Source plugin files
+for plug in $PLUGINS; do
+  zcomet load $plug
+done
+
+#zcomet load zsh-users/zsh-syntax-highlighting
 # Set highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 ZSH_HIGHLIGHT_PATTERNS+=('brew install *' 'fg=white,bold,bg=green')
 
-zcomet load zsh-users/zsh-autosuggestions
+#zcomet load zsh-users/zsh-autosuggestions
 # Set color of autosuggestions and ignore leading spaces
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=69'
 
-zcomet load zsh-users/zsh-history-substring-search
+#zcomet load zsh-users/zsh-history-substring-search
 # Set history search options
 HISTORY_SUBSTRING_SEARCH_FUZZY=set
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=set

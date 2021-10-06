@@ -42,3 +42,37 @@ zsh -ic exit  0,03s user 0,01s system 96% cpu 0,040 total
 zsh -ic exit  0,03s user 0,01s system 97% cpu 0,041 total
 zsh -ic exit  0,03s user 0,01s system 97% cpu 0,041 total
 zsh -ic exit  0,03s user 0,01s system 97% cpu 0,041 total
+
+
+# Loop through modules and plugins:
+
+Startup Time:  37.8671 ms
+Startup Time:  49.0159 ms
+Startup Time:  33.2221 ms
+
+zcomet ~ > repeat 10 { time zsh -i -c exit; }
+
+zsh -i -c exit  0,03s user 0,01s system 97% cpu 0,041 total
+zsh -i -c exit  0,02s user 0,02s system 97% cpu 0,040 total
+zsh -i -c exit  0,03s user 0,00s system 98% cpu 0,040 total
+zsh -i -c exit  0,03s user 0,01s system 98% cpu 0,042 total
+zsh -i -c exit  0,03s user 0,01s system 96% cpu 0,042 total
+zsh -i -c exit  0,03s user 0,01s system 97% cpu 0,040 total
+zsh -i -c exit  0,02s user 0,02s system 96% cpu 0,040 total
+zsh -i -c exit  0,02s user 0,02s system 98% cpu 0,040 total
+zsh -i -c exit  0,03s user 0,01s system 96% cpu 0,043 total
+zsh -i -c exit  0,03s user 0,01s system 96% cpu 0,041 total
+
+
+zcomet ~ > for i in $(seq 1 10); do time zsh -ic exit; done;
+
+zsh -ic exit  0,04s user 0,00s system 98% cpu 0,040 total
+zsh -ic exit  0,02s user 0,02s system 95% cpu 0,041 total
+zsh -ic exit  0,02s user 0,02s system 96% cpu 0,044 total
+zsh -ic exit  0,03s user 0,01s system 96% cpu 0,042 total
+zsh -ic exit  0,03s user 0,01s system 96% cpu 0,040 total
+zsh -ic exit  0,03s user 0,01s system 98% cpu 0,040 total
+zsh -ic exit  0,04s user 0,00s system 95% cpu 0,041 total
+zsh -ic exit  0,04s user 0,01s system 97% cpu 0,042 total
+zsh -ic exit  0,03s user 0,01s system 97% cpu 0,041 total
+zsh -ic exit  0,03s user 0,01s system 95% cpu 0,041 total
