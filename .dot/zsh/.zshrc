@@ -30,24 +30,36 @@ setopt no_beep
 PROMPT='%F{green}%n%f %F{cyan}%(4~|%-1~/.../%2~|%~)%f %F{magenta}%B>%b%f '
 RPROMPT='%(?.%F{green}.%F{red}[%?] - )%B%D{%H:%M:%S}%b%f'#
 
-builtin source $MODULE_DIR/aliases/aliases.zsh
-builtin source $MODULE_DIR/history/history.zsh
-builtin source $MODULE_DIR/colored-man/colored-man.zsh
-builtin source $MODULE_DIR/dircolor/dircolor.zsh
-builtin source $MODULE_DIR/completion/completion.zsh
+builtin source ~/.zpm/zpm.zsh
+
+zpm load @file/aliases,origin:$MODULE_DIR/aliases/aliases.zsh
+#zpm load @link/aliases,origin:$MODULE_DIR/aliases/,source:aliases.zsh
+#zpm load @link/plugin,origin:$MODULE_DIR/aliases/,source:aliases.zsh
+zpm load @file/history,origin:$MODULE_DIR/history/history.zsh
+#zpm load @link/history,origin:$MODULE_DIR/history/,source:history.zsh
+#zpm load @link/plugin,origin:$MODULE_DIR/history/,source:history.zsh
+zpm load @file/colored-mand,origin:$MODULE_DIR/colored-man/colored-man.zsh
+#zpm load @link/colored-man,origin:$MODULE_DIR/colored-man/,source:colored-man.zsh
+#zpm load @link/plugin,origin:$MODULE_DIR/colored-man/,source:colored-man.zsh
+zpm load @file/dircolor,origin:$MODULE_DIR/dircolor/dircolor.zsh
+#zpm load @link/dircolor,origin:$MODULE_DIR/dircolor/,source:dircolor.zsh
+#zpm load @link/plugin,origin:$MODULE_DIR/dircolor/,source:dircolor.zsh
+zpm load @file/completion,origin:$MODULE_DIR/completion/completion.zsh
+#zpm load @link/completion,origin:$MODULE_DIR/completion/,source:completion.zsh
+#zpm load @link/plugin,origin:$MODULE_DIR/completion/,source:completion.zsh
 
 
-builtin source $PLUGIN_DIR/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zpm load zsh-users/zsh-syntax-highlighting,origin:https://github.com/zsh-users/zsh-syntax-highlighting
 # Set highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 ZSH_HIGHLIGHT_PATTERNS+=('brew install *' 'fg=white,bold,bg=green')
 
-builtin source $PLUGIN_DIR/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+zpm load zsh-users/zsh-autosuggestions
 # Set color of autosuggestions and ignore leading spaces
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=69'
 
-builtin source $PLUGIN_DIR/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
+zpm load zsh-users/zsh-history-substring-search
 # Set history search options
 HISTORY_SUBSTRING_SEARCH_FUZZY=set
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=set
